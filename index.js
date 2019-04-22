@@ -18,7 +18,7 @@ app.get('/', function(req, res){
 
 // Check if user connected
 io.on('connection', function(socket){
-    console.log('a user connected');
+    console.log(`Socket ${socket.id} connected.`);
     checkClientList()
     socket.on('chat message', (msg) => {
         io.emit('chat message', msg);
@@ -26,7 +26,7 @@ io.on('connection', function(socket){
 
     // Check if user disconnected
     socket.on('disconnect', () =>{
-        console.log('user disconnected')
+        console.log(`Socket ${socket.id} disconnected.`);
         checkClientList()
     });
 });
