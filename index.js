@@ -1,8 +1,8 @@
 // Include Express Framework
 const express = require('express')
-// Define Port
+    // Define Port
 const port = 3000
-// Create WebApp Server
+    // Create WebApp Server
 const app = express()
 var http = require('http').createServer(app);
 // Include Socket.io 
@@ -12,12 +12,12 @@ var io = require('socket.io')(http);
 app.use(express.static('public'))
 app.use(express.static('resources'))
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
     res.sendFile(__dirname + '/resources/views/index.html');
 });
 
 // Check if user connected
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
     console.log(`Socket ${socket.id} connected.`);
     checkClientList()
     socket.on('chat message', (msg) => {
@@ -25,17 +25,17 @@ io.on('connection', function(socket){
     });
 
     // Check if user disconnected
-    socket.on('disconnect', () =>{
+    socket.on('disconnect', () => {
         console.log(`Socket ${socket.id} disconnected.`);
         checkClientList()
     });
 });
 
 // Check Socket Client List
-function checkClientList(){
+function checkClientList() {
     io.clients((error, clients) => {
         if (error) throw error;
-        console.log(clients); 
+        console.log(clients);
     })
 }
 
