@@ -1,8 +1,8 @@
 // Include Express Framework
 const express = require('express')
-// Define Port
+    // Define Port
 const port = 3000
-// Create WebApp Server
+    // Create WebApp Server
 const app = express()
 var http = require('http').createServer(app);
 // Include Socket.io 
@@ -24,7 +24,7 @@ app.get('/server', function(req, res){
  var countOfPlayers = 0;
 
 // Check if user connected
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
     console.log(`Socket ${socket.id} connected.`);
     io.clients((error, clients) => { countOfPlayers = clients.length})
 
@@ -59,17 +59,17 @@ io.on('connection', function(socket){
     });
 
     // Check if user disconnected
-    socket.on('disconnect', () =>{
+    socket.on('disconnect', () => {
         console.log(`Socket ${socket.id} disconnected.`);
         checkClientList()
     });
 });
 
 // Check Socket Client List
-function checkClientList(){
+function checkClientList() {
     io.clients((error, clients) => {
         if (error) throw error;
-        console.log(clients); 
+        console.log(clients);
     })
 }
 
