@@ -3,7 +3,10 @@ $(function () {
 
     $('form').submit(function(e){
         e.preventDefault(); // prevents page reloading
-        socket.emit('chat message', $('#m').val());
+        socket.emit('startgame', $('#m').val());
+        socket.emit('endgame', function(){
+            //pass all the words by player
+        })
         $('#m').val('');
         return false;
     });
