@@ -1,8 +1,9 @@
-html, body {
+html,
+body {
     height: 100%;
     font-family: 'Strasua', Arial, sans-serif;
     font-size: 50pt;
-    
+
 }
 
 .container-fluid {
@@ -12,33 +13,75 @@ html, body {
     color: #fff;
     flex-direction: column;
     background-image: url("/img/bg.jpg");
-    background-size: cover; 
+    background-size: cover;
     align-items: center;
 }
 
-label, h1, h2, h3 ,h4{
-    background: -webkit-linear-gradient(rgb(136, 196, 236), rgb(74, 194, 250),  rgb(99, 101, 228));
+.word-cosmos,
+label,
+h1,
+h2,
+h3,
+h4 {
+    background: -webkit-linear-gradient(rgb(136, 196, 236), rgb(74, 194, 250), rgb(99, 101, 228));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 255);
+    text-shadow: rgb(74, 194, 250) 0px 10px 10px;
+}
+
+.link-instruc{
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 255);
+}
+
+.link, .count{
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(255, 165, 0), rgb(241, 255, 119));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    text-shadow: rgb(74,194,250) 0px 10px 10px;
+    text-shadow: rgb(255, 165, 0) 0px 10px 10px;
 }
 
-.overlay{
-  display: none;
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0; 
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(86, 39, 216, 0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+.overlay {
+    display: none;
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(86, 39, 216, 0.5);
+    /* Black background with opacity */
+    z-index: 3;
+    /* Specify a stack order in case you're using a different order for other elements */
 }
 
-.logo-banner{
+#particles-js {
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.logo-banner {
     order: 1;
     z-index: 1;
     height: 15%;
@@ -46,18 +89,18 @@ label, h1, h2, h3 ,h4{
     margin: 20% auto;
 }
 
-.logo{
+.logo {
     height: 100%;
     width: 100%;
 }
 
 /* Mobile first queries */
 
-  /* For mobile phones: */
+/* For mobile phones: */
 
-  input{
+input {
     background-color: rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(220, 220, 220, 0.3),rgba(255, 255, 255, 0.1));
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(220, 220, 220, 0.3), rgba(255, 255, 255, 0.1));
     border: 4px solid rgb(80, 164, 248);
     box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
     border-radius: 10px;
@@ -66,11 +109,11 @@ label, h1, h2, h3 ,h4{
     width: 100%;
 }
 
-.login-body{
+.login-body {
     order: 2;
     display: flex;
     z-index: 1;
-    background-color:rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     border: 4px solid rgb(80, 164, 248);
     box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
     border-radius: 10px;
@@ -79,11 +122,11 @@ label, h1, h2, h3 ,h4{
     align-items: center;
 }
 
-.username-container{
-   text-align:center;
-   flex:1;
-   flex-basis: 100%;
-   padding: 0 20%;
+.username-container {
+    text-align: center;
+    flex: 1;
+    flex-basis: 100%;
+    padding: 0 20%;
 }
 
 /* .header-overlay, .header-label, .header-divider, .header-timer{
@@ -91,46 +134,49 @@ label, h1, h2, h3 ,h4{
     background-image: linear-gradient(rgb(105, 105, 105), rgb(220, 220, 220),rgb(255, 255, 255));
 } */
 
-.header-divider, .header-timer{
+.header-divider,
+.header-timer {
     height: 75%;
     width: 25%;
 }
 
-.header{
-   order: 1;
-   width: 100%;
-   display: inline-flex;
-   flex-direction: row;
-   height: 20%;
-   font-size: 30pt;
-   background-image: url('/img/TopBarcon.png');
-   background-size: contain;
-   background-repeat: no-repeat;
+.header {
+    order: 1;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    height: 20%;
+    font-size: 30pt;
+    background-image: url('/img/TopBarcon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.header-label{
-    order:1;
-    width: 50%; 
+.header-label {
+    order: 1;
+    width: 50%;
 }
 
-.header-divider{
+.header-divider {
     order: 2;
-  
+
 }
 
-.header-timer{
+.header-timer {
     order: 3;
-  
+
 }
 
-
-.timer, .gamelink-container, .playercount-container{
-    background-image: linear-gradient(rgb(105, 105, 105), rgb(220, 220, 220),rgb(205, 205, 205));
+.timer,
+.gamelink-container,
+.playercount-container {
+    background-image: linear-gradient(rgba(105, 105, 105, 0.5), rgba(220, 220, 220, 0.5), rgba(205, 205, 205, 0.5));
     border: 4px solid rgb(80, 164, 248);
     box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
     border-radius: 10px;
 }
-.timer{
+
+.timer {
     width: 90%;
     height: 90%;
     align-items: center;
@@ -139,9 +185,7 @@ label, h1, h2, h3 ,h4{
     display: block;
 }
 
-
-
-.body-container{
+.body-container {
     order: 2;
     display: inline-flex;
     flex-direction: row;
@@ -149,62 +193,85 @@ label, h1, h2, h3 ,h4{
     width: 90%;
 }
 
-.gamelink-container{
+.gamelink-container {
     order: 1;
-    flex:8;
+    flex: 8;
     margin: 1%;
 }
 
-.playercount-container{
+.playercount-container {
     order: 2;
-    flex:4;
+    flex: 4;
     margin: 1%;
+}
+
+.link-instruc{
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 30pt;
+    text-align: center;
+   
+}
+.word-cosmos{
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+}
+
+.count{
+    font-size: 200pt;
 }
 
 /* Larger than mobile */
-@media (min-width: 400px) {
-
-}
+@media (min-width: 400px) {}
 
 /* Larger than phablet */
 @media (min-width: 550px) {}
 
 /* Larger than tablet */
 @media (min-width: 750px) {
-    html, body{
+
+    html,
+    body {
         font-size: 40pt;
     }
-    .logo-banner{
+
+    .logo-banner {
         height: 20%;
         width: 40%;
         margin: 5% auto;
     }
-    .login-body{
+
+    .login-body {
         width: 80%;
         height: 30%;
     }
-    .header h4{
-       
-            font-size: 45pt;
-        
+
+    .header h4 {
+
+        font-size: 45pt;
+
     }
-    
+
 }
 
 /* Larger than desktop */
 @media (max-width: 1000px) {}
 
 /* Larger than Desktop HD */
-@media (min-width: 1200px) {}@media only screen and (max-width: 600px)  {}
+@media (min-width: 1200px) {}
+
+@media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {} 
+@media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {} 
+@media only screen and (min-width: 768px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {} 
+@media only screen and (min-width: 992px) {}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}
