@@ -5,6 +5,17 @@ $(function () {
     console.log('callback - particles.js config loaded');
     });
 
+    // Player Joined to Lobby
+    socket.on('playerLobby', function(data){
+        //alert(data.playerCount);
+        $("#count").text(data.playerCount);
+    });
+
+    //timer count down
+    socket.on('timer', function(data){
+        $("#time").text(data.time);
+    })
+
     $('form').submit(function(e){
         e.preventDefault(); // prevents page reloading
         socket.emit('startgame', $('#m').val());
