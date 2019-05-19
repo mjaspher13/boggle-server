@@ -4,10 +4,12 @@ const express = require('express')
 const port = 4000
 // Create WebApp Server
 const app = express()
-//Logger
+// Logger
 const logger = require('morgan');
+// Body-parser
+const bodyParser = require('body-parser');
 var http = require('http').createServer(app);
-//DB Connection
+// DB Connection
 require("./database/connection")
 // Include Socket.io 
 var io = require('socket.io')(http);
@@ -17,12 +19,12 @@ app.use(logger('dev'));
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 // Static File Path
 app.use(express.static('public'))
-app.use(express.static('resources'))
-
 
 // Route
 // mount the router on the app
@@ -62,12 +64,12 @@ function countDown(socket, start, time) {
         var timeleft = time;
         var downloadTimer = setInterval(function () {
             timeleft -= 1;
-        if (timeleft <= 0 || start == false){
-            io.emit('timer', {
-                time: timeleft
-            }); 
-            clearInterval(downloadTimer);
-        }
+            if (timeleft <= 0 || start == false) {
+                io.emit('timer', {
+                    time: timeleft
+                });
+                clearInterval(downloadTimer);
+            }
         }, 1000);
     } else {
         io.emit('timer', {

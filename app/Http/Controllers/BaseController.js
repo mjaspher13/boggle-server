@@ -21,23 +21,13 @@ class BaseController {
     * @return {Object} res The response object
     */
    create(req, res, next) {
-      let obj = req.body;
-      const validator = this._model.validateCreate(obj);
-      if (validator.passes()) {
-         let object = new this._model(obj);
-         object.save()
-            .then((savedObject) => {
-               const meta = getSuccessMeta();
-               return res.status(OK).json(formatResponse(meta, savedObject));
-            }, (err) => {
-               return next(err);
-            });
-      } else {
-         const appError = new AppError('input errors',
-            BAD_REQUEST, validator.errors.all());
-         return next(appError);
-      }
-   }
+         return this._model
+           .create({
+             username: req.body.username,
+           })
+           .then(model => res.status(201).send(model))
+           .catch(error => res.status(400).send(error));
+         }
 }
 
-export default AppController;
+module.exports = BaseController;

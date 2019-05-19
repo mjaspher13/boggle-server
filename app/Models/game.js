@@ -5,10 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     playersId: DataTypes.STRING
   }, {});
   Game.associate = function(models) {
-    Game.belongsTo(models.User, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE',
-    });
     Game.hasMany(models.Word, {
       foreignKey: 'wordId',
       onDelete: 'CASCADE',
@@ -16,3 +12,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Game;
 };
+
+//['a', 's' 'e', 'c']
+//[1, 5, 77, 87]
