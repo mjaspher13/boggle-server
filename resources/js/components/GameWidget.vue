@@ -1,6 +1,6 @@
 <template>
     <div class="game-widget-container">
-        <div class="game-widget h">
+        <div class="game-widget">
             <h3>36</h3>
         </div>
         <div class="game-widget">

@@ -8,16 +8,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
     export default {
         name: 'WordInput',
-        methods: {
-            ...mapActions(['fetchWords'])
-        },
-        computed: mapGetters(['allWords']),
-        created(){
-            this.fetchWords()
-        }
     }
 </script>
 

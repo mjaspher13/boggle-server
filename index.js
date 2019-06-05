@@ -1,5 +1,11 @@
 // Include Express Framework
 const express = require('express')
+// Random generate token
+const uuid = require('uuid/v4')
+// Session
+const session = require('express-session')
+// Sequelize store
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // Define Port
 const port = 4000
 // Create WebApp Server
@@ -8,20 +14,49 @@ const app = express()
 const logger = require('morgan');
 // Body-parser
 const bodyParser = require('body-parser');
+// Use Passport for Auth
+var passport = require('passport');
+
 var http = require('http').createServer(app);
 // DB Connection
 require("./database/connection")
 // Include Socket.io 
 var io = require('socket.io')(http);
 
+require('./config/passport.js')(passport);
+
 // Log requests to the console.
 app.use(logger('dev'));
+
+var myStore = new SequelizeStore({
+    db: sequelize
+})
+app.use(session({
+    genid: (req) => {
+        console.log('Inside session middleware genid function')
+        console.log(`Request object sessionID from client: ${req.sessionID}`)
+        return uuid() // use UUIDs for session IDs
+    },
+    secret: 'word cosmos',
+    store: myStore,
+    resave: true,
+    saveUninitialized: true,
+    proxy: true
+}))
+
+myStore.sync();
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+// Initialiaze Passport
+app.use(passport.initialize());
+// User passport for sessions
+app.use(passport.session()); 
+
 
 // Static File Path
 app.use(express.static('public'))

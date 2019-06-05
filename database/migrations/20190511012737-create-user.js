@@ -14,6 +14,9 @@ module.exports = {
       score: {
         type: Sequelize.INTEGER
       },
+      session_id:{
+        type: Sequelize.STRING
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

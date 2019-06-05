@@ -1,8 +1,8 @@
 <template>
     <div class="words-container">
         <ul class="words-list">
-            <li class="words" v-for="(word, index) in allWords" :key="`word-${index}`">
-                {{word}}
+            <li class="words" v-for="(words, index) in allWords" :key="`word-${index}`">
+                {{words}}
             </li>
         </ul>
     </div>
@@ -15,7 +15,7 @@ import { mapGetters, mapActions } from 'vuex'
         methods: {
             ...mapActions(['fetchWords'])
         },
-        computerd: mapGetters(['allWords']),
+        computed: mapGetters(['allWords']),
         created(){
             this.fetchWords()
         }

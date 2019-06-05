@@ -5,7 +5,7 @@ var router = require('express').Router();
 
 // individual server routes
 router.get('/', function(req, res, next) {
-	res.sendFile('index.html', {root: './resources/views/player'});
+	res.sendFile(process.cwd() +'/resources/views/player/index.html');
 });
 
 router.post('/register',userCtrl.create);

@@ -132,6 +132,7 @@ input {
 .send:hover,
 .submit:hover {
     background-color: rgb(77, 41, 236);
+    color: #fff;
 }
 
 .login-body {

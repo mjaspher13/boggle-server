@@ -1,5 +1,5 @@
 const state = {
-    words: ['Word 1', 'Word 2', 'Word 3']
+    words: []
 }
 
 const getters = {
@@ -10,7 +10,7 @@ const actions = {
     async fetchWords({
         commit
     }) {
-       
+        commit('setWords', ['Word 1', 'Word 2', 'Word 3'])
     }
 }
 
