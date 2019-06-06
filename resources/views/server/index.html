@@ -12,12 +12,11 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/assets//jquery/jquery.min.js"></script>
   <script src="/assets/particles/particles.min.js"></script>
-  <script src="/js/index.js"></script>
 </head>
 
 <body>
   <div id="particles-js"></div>
-  <div class="container-fluid h-100">
+  <div id="app"class="container-fluid h-100">
     <div class="overlay"></div>
     <div class="header">
       <!-- <div class="header-overlay"> -->
@@ -27,7 +26,7 @@
       <div class="header-divider"></div>
       <div class="header-timer">
         <div class="timer">
-          <h4 id="time">Timer</h4>
+          <h4 id="time">10</h4>
         </div>
       </div>
       <!-- </div> -->
@@ -36,12 +35,20 @@
       <div class="gamelink-container">
         <p class="link-instruc">To play, please connect your device to the Wi-Fi Router named</p> <p class="word-cosmos">WordCosmos</p><p class="link-instruc"> and visit the link</p>
         <p class="link">http://192.168.0.1</p>
+        <div class="d-flex">
+        <canvas id="canvas" class="mx-auto"></canvas>
+        </div>
       </div>
       <div class="playercount-container">
         <p class="count" id="count">2</p>
+        <div>
+        <button class="start-game mx-auto">Start Game</button>
+        </div>
       </div>
     </div>
   </div>
+  <script src="/js/app.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>

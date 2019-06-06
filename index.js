@@ -7,7 +7,7 @@ const session = require('express-session')
 // Sequelize store
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // Define Port
-const port = 4000
+// const port = process.env.PORT;
 // Create WebApp Server
 const app = express()
 // Logger
@@ -168,4 +168,6 @@ function countDown(socket, start, time) {
 //     })
 // }
 
-http.listen(port, () => console.log(`App listening on port ${port}!`))
+const server = http.listen(3000, () => {
+    console.log('Listening on port:', server.address().port);
+  });

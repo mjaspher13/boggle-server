@@ -101,7 +101,8 @@ h5 {
 /* For mobile phones: */
 
 .send,
-.submit{
+.submit,
+.start-game {
     background-color: rgb(80, 164, 248);
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(220, 220, 220, 0.3), rgba(255, 255, 255, 0.1));
     border: 4px solid rgb(80, 164, 248);
@@ -155,7 +156,7 @@ input {
     padding: 0 30%;
 }
 
-.username{
+.username {
     margin: 0;
     color: rgb(80, 164, 248);
     font-size: 25pt;
@@ -211,7 +212,10 @@ input {
 .gamelink-container,
 .playercount-container,
 .game-widget,
-.score-board {
+.score-board,
+.inprogress-container,
+.inprogress--players-container,
+.inprogress-timer {
     background-image: linear-gradient(rgba(105, 105, 105, 0.5), rgba(220, 220, 220, 0.5), rgba(205, 205, 205, 0.5));
     border: 4px solid rgb(80, 164, 248);
     box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
@@ -266,21 +270,21 @@ input {
     font-size: 200pt;
 }
 
-.game{
+.game {
     display: inline-flex;
     width: 90%;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.h-40{
+.h-40 {
     height: 40% !important;
 }
 
-.game-widget-container{
+.game-widget-container {
     display: flex;
     order: 1;
-    flex-direction : column;
+    flex-direction: column;
     width: 25%;
     height: 80%;
     margin: 1%;
@@ -288,7 +292,7 @@ input {
     align-content: space-between;
 }
 
-.game-widget{
+.game-widget {
     height: 25%;
     margin: 1%;
     align-items: center;
@@ -305,7 +309,8 @@ input {
     justify-content: center;
     align-items: center;
 }
-.words-input{
+
+.words-input {
     color: #fff;
     font-size: 23pt;
     height: 60%;
@@ -313,7 +318,7 @@ input {
     margin: auto;
 }
 
-.send{
+.send {
     color: #fff;
     font-size: 23pt;
     height: 60%;
@@ -325,23 +330,55 @@ input {
     color: white;
 }
 
-.score-board{
+.score-board {
     flex-basis: 80%;
 }
 
-.scores{
+.scores {
     display: flex;
     justify-content: space-between;
 }
 
-.score{
+.score {
     flex: 1;
     font-size: 30pt;
     text-align: center;
 }
 
-.score-board-header{
+.score-board-header {
     text-align: center;
+}
+
+.inprogress-inner {
+    padding: 20% 0;
+}
+
+.inprogress-container {
+   
+    margin: auto 15px;
+}
+
+.inprogress-timer {
+    display: flex;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.inprogress--players-container,
+.inprogress-timer {
+    margin: 30px;
+}
+
+.disqualified{
+    color: red;
+}
+
+.quit{
+    color: gray;
+    font-style: italic;
+    font-size: 30px;
+    text-align:center;
 }
 
 /* Larger than mobile */

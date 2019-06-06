@@ -29,4 +29,9 @@ $(function () {
     socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
     });
+
+    QRCode.toCanvas(document.getElementById('canvas'), 'sample text', function (error) {
+        if (error) console.error(error)
+        console.log('success!');
+      })
 })
