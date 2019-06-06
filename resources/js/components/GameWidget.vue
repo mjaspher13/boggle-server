@@ -1,26 +1,29 @@
 <template>
-    <div class="game-widget-container">
-        <div class="game-widget">
-            <h3>36</h3>
-        </div>
-        <div class="game-widget">
-
-        </div>
-        <div class="game-widget h-40">
-            <h3>36</h3>
-        </div>
+  <div class="game-widget-container">
+    <div class="game-widget d-flex flex-column">
+       <span class="disqualified small">Last</span>
+      <span>10 </span>
+      <span class="disqualified smaller"> sec Remaining</span>
     </div>
+    <div class="game-widget d-flex flex-column">
+        <span>
+            10
+        </span>
+        <span class="smallest"> Temporary Points </span>
+    </div>
+    <div class="game-widget h-40 d-flex flex-column">
+     <span class="smallest">Find as many 3-5 letter word as you can!</span>
+    </div>
+  </div>
 </template>
 
 <script>
-import Timer from './GameWidget/Timer.vue'
-import Score from './GameWidget/Score.vue'
-import Notif from './GameWidget/Notif.vue'
-    export default {
-        name: 'GameWidget',
-        
-    }
+import Timer from "./GameWidget/Timer.vue";
+import Score from "./GameWidget/Score.vue";
+import Notif from "./GameWidget/Notif.vue";
+export default {
+  name: "GameWidget"
+};
 </script>
 <style lang="css" scoped>
-
 </style>

@@ -371,7 +371,18 @@ input {
 }
 
 .disqualified{
-    color: red;
+    color: red !important;
+}
+
+.small{
+    font-size: 25px;
+}
+
+.smaller{
+    font-size: 20px;
+}
+.smallest{
+    font-size: 25px;
 }
 
 .quit{

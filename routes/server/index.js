@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 // individual server routes
-router.get('/inprogress', function(req, res, next) {
+router.get('/ingame', function(req, res, next) {
 	res.sendFile(process.cwd() +'/resources/views/server/inprogress.html');
 	
 });
