@@ -1,5 +1,7 @@
 // Include Express Framework
 const express = require('express')
+// Env
+const { port } = require('./config/config');
 // Random generate token
 const uuid = require('uuid/v4')
 // Session
@@ -168,6 +170,6 @@ function countDown(socket, start, time) {
 //     })
 // }
 
-const server = http.listen(3000, () => {
+const server = http.listen(port, () => {
     console.log('Listening on port:', server.address().port);
   });

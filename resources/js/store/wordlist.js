@@ -10,7 +10,7 @@ const actions = {
     async fetchWords({
         commit
     }) {
-        commit('setWords', ['desks', 'dew', 'drove', 'euks', 'odes', 'nkosi'])
+        commit('setWords', ['dance', 'deed'])
     }
 }
 

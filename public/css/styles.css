@@ -235,13 +235,13 @@ input {
     order: 2;
     display: inline-flex;
     flex-direction: row;
-    height: 70%;
+    height: 80%;
     width: 90%;
 }
 
 .gamelink-container {
     order: 1;
-    flex: 8;
+    flex: 10;
     margin: 1%;
 }
 
@@ -257,7 +257,6 @@ input {
     text-align: center;
     font-size: 30pt;
     text-align: center;
-
 }
 
 .word-cosmos {
@@ -391,6 +390,7 @@ input {
     font-size: 30px;
     text-align:center;
 }
+
 
 /* Larger than mobile */
 @media (min-width: 400px) {}

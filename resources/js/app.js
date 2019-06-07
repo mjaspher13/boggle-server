@@ -1,7 +1,6 @@
 window.Vue = require('vue');
-import '../../public/assets/bootstrap/css/bootstrap.min.css';
 import '../../public/fonts/font.css';
-import '../../public/css/styles.css';
+import '../../resources/sass/app.scss';
 import store from './store'
 window.QRCode = require ('qrcode')
 
