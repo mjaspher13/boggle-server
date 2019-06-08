@@ -10,12 +10,29 @@ const actions = {
     async fetchWords({
         commit
     }) {
-        commit('setWords', ['dance', 'deed'])
+        commit('setWords', [])
+    },
+
+    sendWord({
+        commit
+    }, input, swal) {
+        if (!state.words.includes(input))
+        {
+            commit('addWord', input)
+        }
+
+        else{
+            Vue.swal('Repeated Word!')
+        }
     }
 }
 
 const mutations = {
-    setWords: (state, words) => (state.words = words)
+    setWords: (state, words) => (state.words = words),
+    addWord: (state, word) => {
+        state.words.push(word)
+        console.log(word)
+    }
 }
 
 export default {

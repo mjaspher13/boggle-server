@@ -287,8 +287,8 @@ input {
     width: 25%;
     height: 80%;
     margin: 1%;
-    justify-content: space-between;
-    align-content: space-between;
+    justify-content: flex-start;
+   
 }
 
 .game-widget {

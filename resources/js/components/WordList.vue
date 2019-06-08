@@ -1,6 +1,6 @@
 <template>
     <div class="words-container">
-        <ul class="words-list">
+        <ul class="words-list d-flex flex-column flex-wrap">
             <li class="words" v-for="(words, index) in allWords" :key="`word-${index}`">
                 {{words}}
             </li>
@@ -26,7 +26,6 @@ import { mapGetters, mapActions } from 'vuex'
     .words-container {
         order: 2;
         z-index: 1;
-        display: flex;
         width: 70%;
         height: 80%;
         margin: 1%;
@@ -37,5 +36,6 @@ import { mapGetters, mapActions } from 'vuex'
     }
     .words-list{
         list-style: none;
+        height: 500px;
     }
 </style>

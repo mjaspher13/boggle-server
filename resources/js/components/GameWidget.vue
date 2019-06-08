@@ -1,16 +1,11 @@
 <template>
-  <div class="game-widget-container">
+  <div class="game-widget-container d-flex flex-column">
     <div class="game-widget d-flex flex-column">
        <span class="disqualified small">Last</span>
       <span>10 </span>
       <span class="disqualified smaller"> sec Remaining</span>
     </div>
-    <div class="game-widget d-flex flex-column">
-        <span>
-            10
-        </span>
-        <span class="smallest"> Temporary Points </span>
-    </div>
+   
     <div class="game-widget h-40 d-flex flex-column">
      <span class="smallest">Find as many 3-5 letter word as you can!</span>
     </div>

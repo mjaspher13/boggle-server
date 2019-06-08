@@ -1,0 +1,54 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Cosmos</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/fonts/font.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets//jquery/jquery.min.js"></script>
+    <script src="/assets/particles/particles.min.js"></script>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div id="app" class="container-fluid h-100">
+
+        <div class="container">
+            <div class="inprogress-inner">
+                <div class="inprogress-container">
+                    <div class="inprogress-timer flex-column">
+                        <span class="disqualified">Last</span>
+                        <h4 id="timer">10 secs</h4>
+                        <span class="disqualified">Remaining!</span>
+                    </div>
+                    <div class="inprogress--players-container">
+                        <h5 class="score-board-header">Players</h5>
+                        <ul class="score-list h-80 mx-auto ">
+
+                            <li class="scores d-flex flex-column">
+                                <span class="score align-self-center ">John Paulo</span>
+                            </li>
+                            <li class="scores d-flex flex-column">
+                                <span class="score align-self-center">Gian</span>
+                                
+                            </li>
+                            <li class="scores d-flex flex-column">
+                                <span class="score align-self-center">JM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

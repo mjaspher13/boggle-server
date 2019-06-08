@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({
 // Initialiaze Passport
 app.use(passport.initialize());
 // User passport for sessions
-app.use(passport.session()); 
+app.use(passport.session());
 
 
 // Static File Path
@@ -69,11 +69,10 @@ app.use('/', require('./routes/router'));
 
 var countOfPlayers = 0
 var timer = 30
-var countDownTime = timer
 
 // Check if player connected
 io.on('connect', onConnect);
-// Check if player disconnected
+
 
 
 function onConnect(socket) {
@@ -82,38 +81,51 @@ function onConnect(socket) {
         playerCount: countOfPlayers
     })
 
-    if (countOfPlayers > 1) {
-        countDown(socket, true, countDownTime);
-    } else {
-        countDown(socket, false, timer);
-    }
-
+    countDown(socket, countOfPlayers)
+    
+    // Check if player disconnected
     socket.on('disconnect', function () {
         countOfPlayers = socket.client.conn.server.clientsCount
         io.emit('playerLobby', {
             playerCount: countOfPlayers
         })
+
+        countDown(socket, countOfPlayers)
     })
+
 }
 
-function countDown(socket, start, time) {
-    if (start) {
-        var timeleft = time;
-        var downloadTimer = setInterval(function () {
-            timeleft -= 1;
-            if (timeleft <= 0 || start == false) {
-                io.emit('timer', {
-                    time: timeleft
-                });
-                clearInterval(downloadTimer);
-            }
-        }, 1000);
+function countDown(socket, countOfPlayers) {
+
+    if (countOfPlayers > 1) {
+        startTime()
     } else {
-        io.emit('timer', {
-            time: timer
-        });
+        countReset();
     }
 }
+
+
+function startTime() {
+    var timeleft = time;
+    var downloadTimer = setInterval(function () {
+        timeleft -= 1;
+        if (timeleft <= 0 || start == false) {
+            io.emit('timer', {
+                time: timeleft
+            });
+            clearInterval(downloadTimer);
+        }
+    }, 1000);
+}
+
+function countReset() {
+
+    io.emit('timer', {
+        time: timer
+    });
+}
+
+
 
 
 // io.on('connection', function(socket) {
@@ -172,4 +184,4 @@ function countDown(socket, start, time) {
 
 const server = http.listen(port, () => {
     console.log('Listening on port:', server.address().port);
-  });
+});
