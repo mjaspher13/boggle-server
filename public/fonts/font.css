@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Strasua';
-    src: url('Strasua-Regular.woff2') format('woff2'),
-        url('Strasua-Regular.woff') format('woff');
+    src: url('../font/Strasua-Regular.woff2') format('woff2'),
+        url('../font/Strasua-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

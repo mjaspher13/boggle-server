@@ -5,37 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Word Cosmos</title>
-  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/fonts/font.css">
   <link rel="stylesheet" href="/css/app.css">
-  <link rel="stylesheet" href="/css/styles.css">
+ 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/assets//jquery/jquery.min.js"></script>
+  <script src="/assets/jquery/jquery.min.js"></script>
   <script src="/assets/particles/particles.js"></script>
 </head>
 
 <body>
   <div id="particles-js"></div>
-  <div id="app" class="container-fluid h-100">
-    <div class="container">
+  <div id="app" class="container-fluid">
+   <section class="section--server">
+    <div class="server--container container">
       <div class="overlay"></div>
-      <div class="header">
+      <div class="header row">
         <!-- <div class="header-overlay"> -->
-        <div class="header-label">
+        <div class="header-label col-md-4">
           <h4>Connecting Players</h4>
         </div>
-        <div class="header-divider"></div>
-        <div class="header-timer">
-          <div class="timer">
-            <h4 id="time">10</h4>
+        <div class="header-divider col-md-4"></div>
+        <div class="header-timer col-md-4">
+          <div class="timer d-block">
+            <span id="time" class="time">10</span>
           </div>
         </div>
         <!-- </div> -->
       </div>
-      <section class="section--server">
-        <div class="body-container">
-          <div class="gamelink-container d-flex flex-column justify-content-center">
+     
+        <div class="body-container row">
+          <div class="gamelink-container col-md-8">
 
             <p class="link-instruc">To play, please connect your device to the Wi-Fi Router named</p>
             <p class="word-cosmos">WordCosmos</p>
@@ -45,7 +43,7 @@
               <canvas id="canvas"></canvas></div>
 
           </div>
-          <div class="playercount-container d-flex flex-column">
+          <div class="playercount-container col-md-3">
             <p class="count" id="count">2</p>
             <div class="d-flex">
               <button class="start-game mx-auto">Start Game</button>

@@ -7,7 +7,7 @@ module.exports = {
   watch: true,
   entry: {
       app: './resources/js/app.js',
-      app: './resources/sass/app.scss'
+      //app: './resources/sass/app.scss'
   },
   output: {
     filename: './js/[name].js',
@@ -33,7 +33,8 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
+          "style-loader",
           "css-loader", // translates CSS into CommonJS
           "sass-loader", // compiles Sass to CSS, using Node Sass by default
         ]
@@ -76,10 +77,10 @@ module.exports = {
   plugins: [
     // make sure to include the plugin!
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "./css/[name].css",
-      chunkFilename: "./css/[id].css"
-    })
+    // new MiniCssExtractPlugin({
+    //   filename: "./css/[name].css",
+    //   chunkFilename: "./css/[id].css"
+    // })
 
   ]
 }

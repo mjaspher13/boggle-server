@@ -1,1 +1,112 @@
+html,
+body,
+.container-fluid,
+.container,
+section {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Strasua', Arial, sans-serif;
+}
+
+section {
+    color: #fff;
+    background-image: url("/img/bg.jpg");
+    background-size: cover;
+}
+
+#particles-js {
+    position: fixed;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.word-cosmos,
+label,
+span,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    background: -webkit-linear-gradient(rgb(136, 196, 236), rgb(74, 194, 250), rgb(99, 101, 228));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 255);
+    text-shadow: rgb(74, 194, 250) 0px 10px 10px;
+}
+
+
+.header {
+    flex-direction: row;
+    font-size: 30pt;
+    background-image: url('/img/TopBarcon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.timer,
+.gamelink-container,
+.playercount-container,
+.game-widget,
+.score-board,
+.inprogress-container,
+.inprogress--players-container,
+.inprogress-timer {
+    background-image: linear-gradient(rgba(105, 105, 105, 0.5), rgba(220, 220, 220, 0.5), rgba(205, 205, 205, 0.5));
+    border: 4px solid rgb(80, 164, 248);
+    box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
+    border-radius: 10px;
+}
+
+.link,
+.count {
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(255, 165, 0), rgb(241, 255, 119));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    text-shadow: rgb(255, 165, 0) 0px 10px 10px;
+}
+
+.submit {
+    margin: 0;
+    padding: 2%;
+    height: 15% !important;
+    width: 50% !important;
+}
+
+.send:hover,
+.submit:hover {
+    background-color: rgb(77, 41, 236);
+    color: #fff;
+}
+
+.send,
+.submit,
+.start-game {
+    background-color: rgb(80, 164, 248);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(220, 220, 220, 0.3), rgba(255, 255, 255, 0.1));
+    border: 4px solid rgb(80, 164, 248);
+    box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
+    border-radius: 10px;
+    font-size: 20pt;
+    text-align: center;
+    color: rgb(255, 165, 0);
+}
+
 @import "server/server";
+@import "player/register";

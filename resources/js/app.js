@@ -1,6 +1,4 @@
 window.Vue = require('vue');
-import '../../public/fonts/font.css';
-import '../../resources/sass/app.scss';
 import store from './store'
 window.QRCode = require ('qrcode')
 import VueSweetalert2 from 'vue-sweetalert2';
