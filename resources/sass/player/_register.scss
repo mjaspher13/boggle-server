@@ -1,0 +1,43 @@
+.section--register {
+    .register--container {
+
+        .logo-banner {
+            padding: 30px 15px;
+
+            img {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .login-body {
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 4px solid rgb(80, 164, 248);
+            box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
+            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            margin: auto auto;
+        }
+
+        .username-container {
+            text-align: center;
+            padding: 0 15px;
+
+            .username {
+                margin: 15px;
+                color: rgb(80, 164, 248);
+                font-size: 25pt;
+            }
+
+            .username--input,
+            .submit {
+                margin: 15px auto;
+            }
+
+        
+        }
+
+    }
+}

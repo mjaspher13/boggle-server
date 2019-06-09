@@ -32,6 +32,12 @@ section {
     padding: 0;
 }
 
+button,
+input,
+.submit{
+    z-index: 9
+}
+
 .word-cosmos,
 label,
 span,
