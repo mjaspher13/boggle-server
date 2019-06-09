@@ -16,11 +16,14 @@ export default {
   name: "Register",
   methods: {
     register: function() {
-      axios
-        .post("/register", {
+      axios({
+        method: "post",
+        url: "/register",
+        timeout: 8000, // Let's say you want to wait at least 8 seconds
+        data: {
           username: this.$refs.username.value
-        })
-        .then(data => window.href.localtion(data.url));
+        }
+      }).then(data => (window.location.href = data.data.url));
     }
   }
 };

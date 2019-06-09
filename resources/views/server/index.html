@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Word Cosmos</title>
   <link rel="stylesheet" href="/css/app.css">
- 
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="/assets/jquery/jquery.min.js"></script>
   <script src="/assets/particles/particles.js"></script>
@@ -15,43 +15,39 @@
 <body>
   <div id="particles-js"></div>
   <div id="app" class="container-fluid">
-   <section class="section--server">
-    <div class="server--container container">
-      <div class="overlay"></div>
-      <div class="header row">
-        <!-- <div class="header-overlay"> -->
-        <div class="header-label col-md-4">
-          <h4>Connecting Players</h4>
-        </div>
-        <div class="header-divider col-md-4"></div>
-        <div class="header-timer col-md-4">
-          <div class="timer d-block">
-            <span id="time" class="time">10</span>
+    <section class="section--server">
+      <div class="server--container container">
+        <div class="overlay"></div>
+        <div class="header row">
+          <!-- <div class="header-overlay"> -->
+          <div class="header-label col-md-4">
+            <h4>Connecting Players</h4>
+          </div>
+          <div class="header-divider col-md-4"></div>
+          <div class="header-timer col-md-4">
+            <div class="timer d-block">
+              <span id="time" class="time">0</span>
+            </div>
           </div>
         </div>
-        <!-- </div> -->
-      </div>
-     
         <div class="body-container row">
           <div class="gamelink-container col-md-8">
-
             <p class="link-instruc">To play, please connect your device to the Wi-Fi Router named</p>
             <p class="word-cosmos">WordCosmos</p>
             <p class="link-instruc"> and visit the link</p>
-            <p class="link">http://192.168.0.1</p>
+            <p class="link">http://192.168.8.100:8000</p>
             <div class="d-flex justify-content-center">
               <canvas id="canvas"></canvas></div>
-
           </div>
           <div class="playercount-container col-md-3">
-            <p class="count" id="count">2</p>
+            <p class="count" id="count">0</p>
             <div class="d-flex">
               <button class="start-game mx-auto">Start Game</button>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+    </section>
+  </div>
   </div>
   <script src="/js/app.js"></script>
   <script src="/js/index.js"></script>

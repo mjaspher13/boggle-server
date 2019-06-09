@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Cosmos</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/assets//jquery/jquery.min.js"></script>
+    <script src="/assets/particles/particles.min.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container-fluid">
+     
+        <section class="section--loading">
+            <div class="loading--container container">
+                <div class="score-board mx-auto align-self-center h-80 w-80">
+                    <h5 class="score-board-header">Game Loading</h5>
+                    <div class="scores">
+                        <span class="header-player align-self-start">Waiting for other players to join</span>
+                    </div>
+                    <div class="header-timer mx-auto">
+                        <div class="timer d-block">
+                            <span id="time" class="time">0</span>
+                        </div>
+                    </div>
+                    <ul class="player-list h-80 mx-auto">
+                        <li class="scores">
+                            <span class="score align-self-start">👑John Paulo</span>
+                            <span class="score align-self-end">12</span>
+                        </li>
+                        <li class="scores">
+                            <span class="score align-self-start">Gian</span>
+                            <span class="score align-self-end">10</span>
+                        </li>
+                        <li class="scores">
+                            <span class="score align-self-start">JM</span>
+                            <span class="score align-self-end">7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

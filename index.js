@@ -1,7 +1,7 @@
 // Include Express Framework
 const express = require('express')
-// Env
-
+// // CORS
+// const Cors = require('cors')
 // Random generate token
 const uuid = require('uuid/v4')
 // Session
@@ -47,6 +47,9 @@ app.use(session({
 }))
 
 myStore.sync();
+
+
+// app.use(Cors);
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
