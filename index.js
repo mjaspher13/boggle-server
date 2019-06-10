@@ -68,7 +68,7 @@ const server = http.listen(port, '', () => {
 var ip = require("ip");
 
 console.log('Listening on IP:' + ip.address());
-console.dir ( ip.address() );
+console.dir(ip.address());
 
 // Include Socket.io 
 var io = require('socket.io').listen(server); // Check if player connected
@@ -81,8 +81,24 @@ function onConnect(socket) {
         'port': port
     })
 
+    socket.on('gameStart', function () {
+        timeleft = 90
+        time = setInterval(function () {
+            if (timeleft > 0) {
+                --timeleft
+                io.emit('timer', {
+                    time: timeleft
+                });
+            }
+        }, 1000)
+    })
+
+    socket.on('startGame', function(){
+        io.emit('game');
+    })
+
     socket.on('playerLogin', function (data) {
-        
+
         players.push({
             "username": data.playerName,
             "socket_id": socket.id
@@ -98,7 +114,7 @@ function onConnect(socket) {
     socket.on('disconnect', function () {
         //players.filter(el => el['socket_id'] !== socket.id);
         players = players.filter(player => {
-            
+
             return player.socket_id !== socket.id
         }
         )

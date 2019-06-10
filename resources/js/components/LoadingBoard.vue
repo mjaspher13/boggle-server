@@ -43,7 +43,14 @@ export default {
         'this method was fired by the socket server. eg: io.emit("customEmit", data)'
       );
     },
-    countDown: function(data) {}
+    // timer: function(data) {
+    //   if(data.time == 0)
+    //   windows.location.href = "/game"
+    // }
+    game: function(){
+      console.log('Game');
+      window.location.href = "/game"
+    }
   },
   methods: {
     playerLogin: function() {

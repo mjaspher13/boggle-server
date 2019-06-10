@@ -23,6 +23,7 @@ Vue.component('register', require('./components/Register.vue').default);
 Vue.component('loading-board', require('./components/LoadingBoard.vue').default);
 Vue.component('qr-code', require('./components/QRCode.vue').default);
 Vue.component('count', require('./components/Count.vue').default);
+Vue.component('shaker', require('./components/Shaker.vue').default);
 
 new Vue({
   el: '#app',
