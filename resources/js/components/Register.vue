@@ -4,7 +4,7 @@
       <div class="d-flex flex-column justify-contents-center">
         <label class="username" for="username">Username</label>
         <input type="text" class="username--input" name="username" id="username" ref="username" >
-        <input class="submit" @click="this.register" value="Register">
+        <input class="button" @click="this.register" value="Register">
       </div>
     </div>
   </div>

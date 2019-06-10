@@ -18171,7 +18171,7 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("input", {
-          staticClass: "submit",
+          staticClass: "button",
           attrs: { value: "Register" },
           on: { click: this.register }
         })
