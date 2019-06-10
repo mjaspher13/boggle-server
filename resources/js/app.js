@@ -2,14 +2,13 @@ window.Vue = require('vue');
 import store from './store'
 window.QRCode = require ('qrcode')
 import VueSweetalert2 from 'vue-sweetalert2';
-var socket = io();
+import io from 'socket.io';
+import VueSocketIO from 'vue-socket.io';
 
-// Vue.use(new VueSocketIO({
-//     debug: true,
-//     connection: 'localhost:3000',
-// }))
+export const SocketInstance = io('http://localhost:4000');
 
-Vue.use(VueSweetalert2);
+Vue.use(VueSocketIO, SocketInstance)
+Vue.use(VueSweetalert2)
 
 Vue.component('gamewidget', require('./components/GameWidget.vue').default);
 Vue.component('timer', require('./components/GameWidget/Timer.vue').default);

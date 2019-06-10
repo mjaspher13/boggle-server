@@ -9,7 +9,7 @@ const session = require('express-session')
 // Sequelize store
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // Define Port
-const port = 3000;
+const port = 4000;
 // Create WebApp Server
 const app = express()
 // Logger
@@ -22,8 +22,7 @@ var passport = require('passport');
 var http = require('http').createServer(app);
 // DB Connection
 require("./database/connection")
-// Include Socket.io 
-var io = require('socket.io')(http);
+
 
 require('./config/passport.js')(passport);
 
@@ -76,13 +75,18 @@ var time;
 var timeleft = timer
 var players = [];
 
-// Check if player connected
+const server = http.listen(port, () => {
+    console.log('Listening on port:', port);
+});
+
+// Include Socket.io 
+var io = require('socket.io')(server); // Check if player connected
 io.on('connect', onConnect);
 
 function onConnect(socket) {
-    console.log('connect');
-    socket.on('playerLogIn', function (data) {
-        console.log('plaayer login')
+    console.log(socket.id);
+    socket.on('TEST', function (data) {
+        console.log('player login')
         // countOfPlayers = socket.client.conn.server.clientsCount - 1
         // io.emit('playerLobby', {
         //     playerCount: countOfPlayers
@@ -98,7 +102,6 @@ function onConnect(socket) {
         //console.log(players);
     })
 
-
     // Check if player disconnected
     socket.on('disconnect', function () {
 
@@ -110,7 +113,7 @@ function onConnect(socket) {
         countDown(socket, countOfPlayers)
 
         players.filter(el => el['socket_id'] !== socket.id);
-        console.log("Disconnedt"+players)
+        console.log("Disconnedt" + players)
     })
 
 }
@@ -148,7 +151,3 @@ function countReset() {
         time: timer
     });
 }
-
-const server = http.listen(port, () => {
-    console.log('Listening on port:', port);
-});
