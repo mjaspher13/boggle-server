@@ -16,7 +16,7 @@ export default {
   name: "Register",
   data() {
     return {
-      socket: io("localhost:4000")
+      socket: io("192.168.8.101:4000")
     };
   },
   methods: {
