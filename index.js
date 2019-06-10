@@ -24,6 +24,8 @@ var os = require('os');
 var networkInterfaces = os.networkInterfaces();
 
 var http = require('http').createServer(app);
+var http2 = require('http').createServer(app);
+
 // DB Connection
 //require("./database/connection")
 
@@ -65,6 +67,10 @@ const server = http.listen(port, '', () => {
 
 });
 
+const server2 = http2.listen(443, '', () => {
+
+});
+
 var ip = require("ip");
 
 console.log('Listening on IP:' + ip.address());
@@ -72,6 +78,7 @@ console.dir(ip.address());
 
 // Include Socket.io 
 var io = require('socket.io').listen(server); // Check if player connected
+var io = require('socket.io').listen(server2)
 io.on('connect', onConnect);
 
 function onConnect(socket) {
