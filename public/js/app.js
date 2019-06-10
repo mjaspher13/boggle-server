@@ -2128,7 +2128,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "Register",
   data: function data() {
     return {
-      socket: io("192.168.8.101:4000")
+      socket: io.connect("192.168.8.101:4000")
     };
   },
   methods: {
