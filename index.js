@@ -25,7 +25,7 @@ var networkInterfaces = os.networkInterfaces();
 
 var http = require('http').createServer(app);
 // DB Connection
-require("./database/connection")
+//require("./database/connection")
 
 
 require('./config/passport.js')(passport);
@@ -33,23 +33,7 @@ require('./config/passport.js')(passport);
 // Log requests to the console.
 // app.use(logger('dev'));
 
-var myStore = new SequelizeStore({
-    db: sequelize
-})
-app.use(session({
-    genid: (req) => {
-        // console.log('Inside session middleware genid function')
-        // console.log(`Request object sessionID from client: ${req.sessionID}`)
-        return uuid() // use UUIDs for session IDs
-    },
-    secret: 'word cosmos',
-    store: myStore,
-    resave: true,
-    saveUninitialized: true,
-    proxy: true
-}))
 
-myStore.sync();
 
 
 // app.use(Cors);
@@ -61,9 +45,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Initialiaze Passport
-app.use(passport.initialize());
-// User passport for sessions
-app.use(passport.session());
+
 
 
 // Static File Path
@@ -83,7 +65,10 @@ const server = http.listen(port, '', () => {
 
 });
 
-console.log('Listening on IP:' + server.address().address + ' port:' + port);
+var ip = require("ip");
+
+console.log('Listening on IP:' + ip.address());
+console.dir ( ip.address() );
 
 // Include Socket.io 
 var io = require('socket.io').listen(server); // Check if player connected
@@ -92,7 +77,7 @@ io.on('connect', onConnect);
 function onConnect(socket) {
 
     socket.emit('connected', {
-        'ip': networkInterfaces['Wi-Fi'][1]['address'],
+        'ip': ip.address(),
         'port': port
     })
 
