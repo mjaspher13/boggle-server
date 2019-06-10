@@ -1,10 +1,6 @@
 $(function () {
     var socket = io();
 
-    particlesJS.load('particles-js', '/assets/particles/demo/particles.json', function () {
-        console.log('callback - particles.js config loaded');
-    });
-
     // Player Joined to Lobby
     socket.on('playerLobby', function (data) {
         //alert(data.playerCount);

@@ -74,27 +74,43 @@ var countOfPlayers = 0
 var timer = 30
 var time;
 var timeleft = timer
+var players = [];
 
 // Check if player connected
 io.on('connect', onConnect);
 
 function onConnect(socket) {
-    countOfPlayers = socket.client.conn.server.clientsCount - 1
+    console.log('connect');
+    socket.on('playerLogIn', function (data) {
+        console.log('plaayer login')
+        // countOfPlayers = socket.client.conn.server.clientsCount - 1
+        // io.emit('playerLobby', {
+        //     playerCount: countOfPlayers
+        // })
 
-    io.emit('playerLobby', {
-        playerCount: countOfPlayers
+        // countDown(socket, countOfPlayers)
+
+        // players.push({
+        //     "username": data.playerName,
+        //     "socket_id": socket.id
+        // })
+        // console.log('logged  in' + socket.id);
+        //console.log(players);
     })
 
-    countDown(socket, countOfPlayers)
 
     // Check if player disconnected
     socket.on('disconnect', function () {
+
         countOfPlayers = socket.client.conn.server.clientsCount - 1
         io.emit('playerLobby', {
             playerCount: countOfPlayers
         })
 
         countDown(socket, countOfPlayers)
+
+        players.filter(el => el['socket_id'] !== socket.id);
+        console.log("Disconnedt"+players)
     })
 
 }
@@ -107,8 +123,6 @@ function countDown(socket, countOfPlayers) {
         startTime(false)
     }
 }
-
-
 
 function startTime(start) {
     if (start == true) {

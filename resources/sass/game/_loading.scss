@@ -1,28 +1,45 @@
-.section--loading{
-    .loading--container{
-        margin: 15px;
-
+.section--loading {
+    .loading--container {
         .word {
             color: white;
         }
-        
-        .score-board {
-            width: 300px;
+
+        .loading--board {
+            margin: 0 15px;
         }
-        
+
         .scores {
             display: flex;
             justify-content: space-between;
         }
-        
+
         .score {
             flex: 1;
             font-size: 30pt;
             text-align: center;
         }
-        
-        .score-board-header {
+
+        .loading-board-header {
+            font-size: 20px;
+            padding: 15px;
             text-align: center;
+
+
+            span {
+                text-align: center;
+                color: orange;
+            }
+
+            .title,
+            .subtitle {
+                margin: 20px;
+            }
+
+            .header-timer {
+                width: 120px;
+                margin: 15px;
+                padding: 5px;
+            }
         }
     }
 }

@@ -7064,7 +7064,6 @@ input,
 
 .word-cosmos,
 label,
-span,
 h1,
 h2,
 h3,
@@ -7091,7 +7090,7 @@ h5 {
 .score-board,
 .inprogress-container,
 .inprogress--players-container,
-.inprogress-timer {
+.inprogress-timer .board {
   background-image: linear-gradient(rgba(105, 105, 105, 0.5), rgba(220, 220, 220, 0.5), rgba(205, 205, 205, 0.5));
   border: 4px solid #50a4f8;
   box-shadow: 0 0 10px 10px rgba(80, 164, 248, 0.5);
@@ -7186,3 +7185,33 @@ h5 {
   .section--register .register--container .username-container .username--input,
   .section--register .register--container .username-container .submit {
     margin: 15px auto; }
+
+.section--loading .loading--container .word {
+  color: white; }
+
+.section--loading .loading--container .loading--board {
+  margin: 0 15px; }
+
+.section--loading .loading--container .scores {
+  display: flex;
+  justify-content: space-between; }
+
+.section--loading .loading--container .score {
+  flex: 1;
+  font-size: 30pt;
+  text-align: center; }
+
+.section--loading .loading--container .loading-board-header {
+  font-size: 20px;
+  padding: 15px;
+  text-align: center; }
+  .section--loading .loading--container .loading-board-header span {
+    text-align: center;
+    color: orange; }
+  .section--loading .loading--container .loading-board-header .title,
+  .section--loading .loading--container .loading-board-header .subtitle {
+    margin: 20px; }
+  .section--loading .loading--container .loading-board-header .header-timer {
+    width: 120px;
+    margin: 15px;
+    padding: 5px; }
