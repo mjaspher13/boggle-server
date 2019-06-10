@@ -23,27 +23,27 @@ router.get('/score', function (req, res, next) {
 
 router.get('/shake', function (req, res, next) {
 
-  // exec('python /home/pi/shaker.py', (err, stdout, stderr) => {
-  //   if (err) {
-  //     console.error(err);
-  //     return;
-  //   }
-  //   console.log(stdout);
-  // })
+  exec('python /home/pi/shaker.py', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(stdout);
+  })
 
-  // setTimeout(function () {
-  //   console.log('capture image')
+  setTimeout(function () {
+    console.log('capture image')
 
-  //   exec('/home/pi/capture.sh', (err, stdout, stderr) => {
-  //     if (err) {
-  //       console.error(err);
-  //       return;
-  //     }
-  //     console.log(stdout);
-  //   })
+    exec('/home/pi/capture.sh', (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(stdout);
+    })
 
 
-  // }, 25000);
+  }, 25000);
   res.sendFile(process.cwd() + '/resources/views/game/shaker.html');
 });
 

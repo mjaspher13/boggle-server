@@ -81,6 +81,7 @@ function onConnect(socket) {
         'port': port
     })
 
+
     socket.on('gameStart', function () {
         timeleft = 90
         time = setInterval(function () {
@@ -120,7 +121,7 @@ function onConnect(socket) {
         )
         countOfPlayers = players.length
         countDown(countOfPlayers)
-        io.emit('playersConnected', { 'count': countOfPlayers });
+        // io.emit('playersConnected', { 'count': countOfPlayers });
         //console.log(io.sockets.clients());
         console.log("Disconnected---" + socket.id)
     })
