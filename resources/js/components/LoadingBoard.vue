@@ -11,16 +11,16 @@
         </div>
       </div>
     </div>
-    <ul class="player-list d-flex flex-column justify-content-center mx-auto">
+    <ul class="player-list d-flex flex-column justify-content-center">
       <!-- <li class="scores">
         <span class="score align-self-start">John Paulo</span>
       </li>
       <li class="scores">
         <span class="score align-self-start">Gian</span>
-      </li>
-      <li class="scores">
-        <span class="score align-self-start">JM</span>
       </li> -->
+      
+        <a class="start-game mx-auto" href="/game">Start Game</a>
+      
     </ul>
   </div>
 </template>
@@ -67,3 +67,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.start-game{
+  font-size: 20px;
+}
+</style>
