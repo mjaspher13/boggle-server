@@ -4,7 +4,7 @@
       <div class="d-flex flex-column justify-contents-center">
         <label class="username" for="username">Username</label>
         <input type="text" class="username--input" name="username" id="username" ref="username" >
-        <input class="button" @click="this.register" value="Register">
+        <button class="submit" @click="this.register">Register</button>
       </div>
     </div>
   </div>
@@ -21,20 +21,22 @@ export default {
   },
   methods: {
     register: function() {
-      if(this.$refs.username.value)
-      axios({
-        method: "post",
-        url: "/register",
-        data: {
-          username: this.$refs.username.value
-        }
-      }).then(data => {
+      if(this.$refs.username.value){
+      // axios({
+      //   method: "post",
+      //   url: "/register",
+      //   data: {
+      //     username: this.$refs.username.value
+      //   }
+      // }).then(data => {
         // Send the "pingServer" event to the server.
         this.$socket.emit("playerLogin", {
           playerName: this.$refs.username.value
         });
-        window.location.href = data.data.url;
-      });
+       // window.location.href = data.data.url;
+       window.location.href = '/game/loading';
+      }
+      //});
     }
   }
 };

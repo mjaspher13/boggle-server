@@ -2133,22 +2133,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     register: function register() {
-      var _this = this;
-
-      if (this.$refs.username.value) axios__WEBPACK_IMPORTED_MODULE_0___default()({
-        method: "post",
-        url: "/register",
-        data: {
-          username: this.$refs.username.value
-        }
-      }).then(function (data) {
+      if (this.$refs.username.value) {
+        // axios({
+        //   method: "post",
+        //   url: "/register",
+        //   data: {
+        //     username: this.$refs.username.value
+        //   }
+        // }).then(data => {
         // Send the "pingServer" event to the server.
-        _this.$socket.emit("playerLogin", {
-          playerName: _this.$refs.username.value
-        });
+        this.$socket.emit("playerLogin", {
+          playerName: this.$refs.username.value
+        }); // window.location.href = data.data.url;
 
-        window.location.href = data.data.url;
-      });
+        window.location.href = '/game/loading';
+      } //});
+
     }
   }
 });
@@ -18170,11 +18170,9 @@ var render = function() {
           attrs: { type: "text", name: "username", id: "username" }
         }),
         _vm._v(" "),
-        _c("input", {
-          staticClass: "button",
-          attrs: { value: "Register" },
-          on: { click: this.register }
-        })
+        _c("button", { staticClass: "submit", on: { click: this.register } }, [
+          _vm._v("Register")
+        ])
       ])
     ])
   ])
