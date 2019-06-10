@@ -7,12 +7,12 @@
       </div>
       <div class="header-timer mx-auto">
         <div class="timer d-block">
-          <span id="time" class="time">0</span>
+          <timer></timer>
         </div>
       </div>
     </div>
     <ul class="player-list d-flex flex-column justify-content-center mx-auto">
-      <li class="scores">
+      <!-- <li class="scores">
         <span class="score align-self-start">John Paulo</span>
       </li>
       <li class="scores">
@@ -20,12 +20,13 @@
       </li>
       <li class="scores">
         <span class="score align-self-start">JM</span>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
 
 <script>
+import Timer from "./GameWidget/Timer";
 export default {
   name: "loading-board",
   data() {
@@ -45,13 +46,17 @@ export default {
     countDown: function(data) {}
   },
   methods: {
-    pingServer() {
-      // Send the "pingServer" event to the server.
-      this.$socket.emit("pingServer", "PING!");
+    playerLogin: function() {
+      this.$socket.emit("playerLogin", {
+        
+      });
     }
   },
-  mounted(){
-      this.pingServer()
+  mounted() {
+    this.playerLogin();
+  },
+  components: {
+    Timer
   }
 };
 </script>

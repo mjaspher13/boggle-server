@@ -33,7 +33,7 @@ class UserController extends BaseController {
          }
       }).then(function (user) {
          if (Array.isArray(user) || user || user != null) {
-            console.log(user)
+            
             passport.authenticate('local', (err, user, info) => {
                // console.log('Inside passport.authenticate() callback');
                // console.log(`req.session.passport: ${JSON.stringify(req.session.passport)}`)

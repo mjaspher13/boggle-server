@@ -18,6 +18,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 // Use Passport for Auth
 var passport = require('passport');
+// OS
+var os = require('os');
+
+var networkInterfaces = os.networkInterfaces();
 
 var http = require('http').createServer(app);
 // DB Connection
@@ -75,50 +79,54 @@ var time;
 var timeleft = timer
 var players = [];
 
-const server = http.listen(port, () => {
-    console.log('Listening on port:', port);
+const server = http.listen(port, '', () => {
+
 });
 
+console.log('Listening on IP:' + server.address().address + ' port:' + port);
+
 // Include Socket.io 
-var io = require('socket.io')(server); // Check if player connected
+var io = require('socket.io').listen(server); // Check if player connected
 io.on('connect', onConnect);
 
 function onConnect(socket) {
-    console.log(socket.id);
-    socket.on('TEST', function (data) {
-        console.log('player login')
-        // countOfPlayers = socket.client.conn.server.clientsCount - 1
-        // io.emit('playerLobby', {
-        //     playerCount: countOfPlayers
-        // })
 
-        // countDown(socket, countOfPlayers)
+    socket.emit('connected', {
+        'ip': networkInterfaces['Wi-Fi'][1]['address'],
+        'port': port
+    })
 
-        // players.push({
-        //     "username": data.playerName,
-        //     "socket_id": socket.id
-        // })
-        // console.log('logged  in' + socket.id);
-        //console.log(players);
+    socket.on('playerLogin', function (data) {
+        
+        players.push({
+            "username": data.playerName,
+            "socket_id": socket.id
+        })
+        countOfPlayers = players.length
+        countDown(countOfPlayers)
+        io.emit('playersConnected', { 'count': countOfPlayers });
+        console.log(io.sockets.clients());
+        //console.log("Connected---"+players);
     })
 
     // Check if player disconnected
     socket.on('disconnect', function () {
-
-        countOfPlayers = socket.client.conn.server.clientsCount - 1
-        io.emit('playerLobby', {
-            playerCount: countOfPlayers
-        })
-
-        countDown(socket, countOfPlayers)
-
-        players.filter(el => el['socket_id'] !== socket.id);
-        console.log("Disconnedt" + players)
+        //players.filter(el => el['socket_id'] !== socket.id);
+        players = players.filter(player => {
+            
+            return player.socket_id !== socket.id
+        }
+        )
+        countOfPlayers = players.length
+        countDown(countOfPlayers)
+        io.emit('playersConnected', { 'count': countOfPlayers });
+        //console.log(io.sockets.clients());
+        console.log("Disconnected---" + socket.id)
     })
 
 }
 
-function countDown(socket, countOfPlayers) {
+function countDown(countOfPlayers) {
 
     if (countOfPlayers > 1) {
         startTime(true)
